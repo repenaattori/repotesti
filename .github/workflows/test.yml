@@ -10,15 +10,6 @@ jobs:
         uses: actions/checkout@v4
         with: 
           ref: ${{github.ref}}
-      - name: Install NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - name: Install packages and build
-        run: | 
-            cd client  
-            npm install
-            npm run build
       - name: Make changes to files
         run: |
           touch info.txt
