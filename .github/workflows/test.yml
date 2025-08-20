@@ -1,7 +1,5 @@
 name: Test repo
 on: push
-permissions:
-  contents: write
 jobs:
   testing:
     runs-on: ubuntu-latest
@@ -11,10 +9,9 @@ jobs:
         with: 
           ref: ${{github.ref}}
       - name: Create something
-        run: touch vekkuli.txt
+        run: touch puikula.txt
       - name: Commit Changes
         run: |
-          git branch
           git config --global user.name 'repenaattori'
           git config --global user.email 'reimarii@oamk.fi'
           git add .
