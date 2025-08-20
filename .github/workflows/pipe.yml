@@ -2,9 +2,9 @@ name: Task 1
 on: workflow_call
 jobs:
   first:
-    uses: './github/workflows/test.yml'
+    uses: './.github/workflows/test.yml'
   second:
-    uses: './github/workflows/test2.yml'
+    uses: './.github/workflows/test2.yml'
     needs: first
    
     
