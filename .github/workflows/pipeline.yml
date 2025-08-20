@@ -1,4 +1,4 @@
-name: Pipe
+name: Pipeline
 on: workflow_dispatch
 jobs:
   first:
