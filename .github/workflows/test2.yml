@@ -1,8 +1,8 @@
-name: Task 1
+name: Task 2
 on: workflow_call
 jobs:
-  task-1:
+  task-2:
     runs-on: ubuntu-latest
     steps:
-      - run: echo TASK1!
+      - run: echo TASK2!
     
