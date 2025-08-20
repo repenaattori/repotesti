@@ -1,1 +1,21 @@
-
+name: Test repo
+on: push
+permissions:
+  contents: write
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with: 
+          ref: ${{github.ref}}
+      - name: Create something
+        run: touch vekkuli.txt
+      - name: Commit Changes
+        run: |
+          git config --global user.name 'repenaattori'
+          git config --global user.email 'reimarii@oamk.fi'
+          git add .
+          git commit -m 'Build added'
+          git push
