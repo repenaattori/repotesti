@@ -1,19 +1,32 @@
-name: Test repo
+name: Commiting code
 on: push
+permissions:
+  contents: write
 jobs:
-  testing:
+  build-client:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with: 
           ref: ${{github.ref}}
-      - name: Create something
-        run: touch puikula.txt
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install packages and build
+        run: | 
+            cd client  
+            npm install
+            npm run build
+      - name: Make changes to files
+        run: |
+          touch info.txt
+          echo "Hello world!" >> README
       - name: Commit Changes
         run: |
           git config --global user.name 'repenaattori'
           git config --global user.email 'reimarii@oamk.fi'
           git add .
-          git commit -m 'Build added'
+          git commit -m 'Some file changes'
           git push
