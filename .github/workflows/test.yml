@@ -14,6 +14,7 @@ jobs:
         run: touch vekkuli.txt
       - name: Commit Changes
         run: |
+          git branch
           git config --global user.name 'repenaattori'
           git config --global user.email 'reimarii@oamk.fi'
           git add .
